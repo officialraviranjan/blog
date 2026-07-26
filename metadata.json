@@ -1,6 +1,6 @@
 {
-  "name": "Hugo Blonde Theme",
-  "description": "A highly optimized, modern, and accessible recreation of the Hugo Blonde blog theme, built with high-fidelity React for live preview and containing a fully deployable Astro and Decap CMS project.",
+  "name": "eurotravelsguide",
+  "description": "An elegant, lightning-fast travel blog template and guide for eurotravelsguide.eu.org.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

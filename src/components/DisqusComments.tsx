@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MessageSquare, Settings, Check, ExternalLink, RefreshCw, AlertCircle, Sparkles } from 'lucide-react';
+import { MessageSquare, Check, RefreshCw, AlertCircle, Sparkles } from 'lucide-react';
 import { Comment } from '../types';
 
 interface DisqusCommentsProps {
@@ -13,14 +13,11 @@ interface DisqusCommentsProps {
 export default function DisqusComments({
   postSlug,
   postTitle,
-  shortname: initialShortname = 'eurotravelblog',
+  shortname = 'eurotravelsguide',
   comments,
   onAddComment,
 }: DisqusCommentsProps) {
   const [activeTab, setActiveTab] = useState<'disqus' | 'native'>('disqus');
-  const [shortname, setShortname] = useState<string>(initialShortname);
-  const [isEditingShortname, setIsEditingShortname] = useState<boolean>(false);
-  const [customShortname, setCustomShortname] = useState<string>(initialShortname);
   const [disqusError, setDisqusError] = useState<boolean>(false);
   const [isScriptLoading, setIsScriptLoading] = useState<boolean>(true);
 
@@ -31,7 +28,7 @@ export default function DisqusComments({
 
   const canonicalUrl = typeof window !== 'undefined' 
     ? `${window.location.origin}/posts/${postSlug}` 
-    : `https://eurotravelblog.com/posts/${postSlug}`;
+    : `https://eurotravelsguide.eu.org/posts/${postSlug}`;
 
   useEffect(() => {
     if (activeTab !== 'disqus') return;
@@ -95,13 +92,6 @@ export default function DisqusComments({
     };
   }, [postSlug, postTitle, shortname, activeTab, canonicalUrl]);
 
-  const handleSaveShortname = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!customShortname.trim()) return;
-    setShortname(customShortname.trim());
-    setIsEditingShortname(false);
-  };
-
   const handleNativeSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newAuthor.trim() || !newText.trim()) {
@@ -157,64 +147,6 @@ export default function DisqusComments({
       {/* DISQUS TAB CONTENT */}
       {activeTab === 'disqus' && (
         <div className="pt-6" id="disqus-tab-content">
-          {/* Disqus Configuration & Status Header */}
-          <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50/50 p-3.5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="font-mono text-slate-600 dark:text-slate-400">
-                Disqus Forum: <strong className="text-slate-900 dark:text-white">{shortname}.disqus.com</strong>
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setIsEditingShortname(!isEditingShortname)}
-                className="font-sans font-semibold text-blue-600 hover:text-blue-700 dark:text-cyan-400 dark:hover:text-cyan-300 flex items-center gap-1 cursor-pointer"
-                id="edit-disqus-shortname-btn"
-              >
-                <Settings className="h-3.5 w-3.5" />
-                <span>{isEditingShortname ? 'Cancel' : 'Change Forum Shortname'}</span>
-              </button>
-              <a
-                href="https://disqus.com/admin/signup/"
-                target="_blank"
-                rel="noreferrer"
-                className="font-sans text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 flex items-center gap-1"
-                title="Get your free Disqus shortname"
-              >
-                <ExternalLink className="h-3.5 w-3.5" />
-                <span>Disqus Portal</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Edit Shortname Form Modal/Panel */}
-          {isEditingShortname && (
-            <form onSubmit={handleSaveShortname} className="mb-6 rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950 animate-in fade-in duration-150">
-              <label className="block font-mono text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-                Enter your Disqus Shortname
-              </label>
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={customShortname}
-                  onChange={(e) => setCustomShortname(e.target.value)}
-                  placeholder="e.g. mytravelblog"
-                  className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-900 focus:border-blue-600 focus:outline-none dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-cyan-400"
-                />
-                <button
-                  type="submit"
-                  className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-500 dark:bg-cyan-500 dark:text-slate-900 dark:hover:bg-cyan-400"
-                >
-                  Save & Reload Thread
-                </button>
-              </div>
-              <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
-                Your shortname is found in your Disqus admin dashboard settings (e.g. <code>https://your-shortname.disqus.com</code>).
-              </p>
-            </form>
-          )}
-
           {/* Disqus Script Loading Spinner / Fallback UI */}
           {isScriptLoading && (
             <div className="flex flex-col items-center justify-center py-12 text-center text-slate-400">

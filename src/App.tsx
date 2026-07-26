@@ -307,7 +307,7 @@ export default function App() {
         {currentRoute === 'about' && (
           <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8 w-full animate-in fade-in duration-300" id="about-view">
             <h1 className="font-sans text-3xl font-extrabold text-slate-900 dark:text-white border-b border-slate-100 pb-3 dark:border-slate-800 mb-8">
-              About Sophia Rossi & eurotravelblog
+              About Sophia Rossi & eurotravelsguide
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
               <div className="md:col-span-1">
@@ -455,14 +455,14 @@ export default function App() {
                 <strong>Last Updated: July 15, 2026</strong>
               </p>
               <p>
-                At eurotravelblog, accessible from our live domain, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by eurotravelblog and how we use it.
+                At eurotravelsguide, accessible from <span className="font-mono text-blue-600 dark:text-cyan-400">eurotravelsguide.eu.org</span>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by eurotravelsguide and how we use it.
               </p>
               <p>
                 This site integrates Google AdSense advertising. Google uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet. You may opt out of personalized advertising by visiting Ads Settings.
               </p>
               <h2 className="font-sans text-lg font-bold text-slate-950 dark:text-white pt-2">Log Files</h2>
               <p>
-                eurotravelblog follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this as part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
+                eurotravelsguide follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this as part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
               </p>
             </div>
           </div>
@@ -479,13 +479,13 @@ export default function App() {
                 <strong>Last Updated: July 15, 2026</strong>
               </p>
               <p>
-                Welcome to eurotravelblog!
+                Welcome to eurotravelsguide!
               </p>
               <p>
-                These terms and conditions outline the rules and regulations for the use of Sophia Rossi's Blog, located at our hosted environment.
+                These terms and conditions outline the rules and regulations for the use of eurotravelsguide, located at eurotravelsguide.eu.org.
               </p>
               <p>
-                By accessing this website we assume you accept these terms and conditions. Do not continue to use eurotravelblog if you do not agree to take all of the terms and conditions stated on this page.
+                By accessing this website we assume you accept these terms and conditions. Do not continue to use eurotravelsguide if you do not agree to take all of the terms and conditions stated on this page.
               </p>
             </div>
           </div>

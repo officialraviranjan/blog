@@ -24,11 +24,11 @@ export default function Footer({ setRoute }: FooterProps) {
                 <Compass className="h-4 w-4" />
               </div>
               <span className="font-sans text-lg font-bold tracking-tight text-slate-900 dark:text-white">
-                eurotravel<span className="text-blue-600 dark:text-cyan-400">blog</span>
+                eurotravels<span className="text-blue-600 dark:text-cyan-400">guide</span>
               </span>
             </button>
             <p className="mt-4 max-w-md font-sans text-sm text-slate-500 leading-relaxed dark:text-slate-400">
-              An elegant, lightning-fast, and AdSense-optimized travel blog dedicated to helping you discover Europe's hidden cobblestones, authentic culinary delights, and breathtaking slow-travel itineraries. Powered by Astro, Tailwind, and Decap CMS.
+              An elegant, lightning-fast travel blog dedicated to helping you discover Europe's hidden cobblestones, authentic culinary delights, and breathtaking slow-travel itineraries at <span className="font-mono text-blue-600 dark:text-cyan-400">eurotravelsguide.eu.org</span>.
             </p>
           </div>
 

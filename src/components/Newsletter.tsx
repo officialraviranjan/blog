@@ -50,7 +50,7 @@ export default function Newsletter() {
               <CheckCircle className="h-10 w-10 text-cyan-400" />
               <h4 className="mt-2 font-sans font-bold text-lg">You are on the list!</h4>
               <p className="text-xs text-slate-300 mt-1">
-                Thank you for subscribing to eurotravelblog.
+                Thank you for subscribing to eurotravelsguide.eu.org.
               </p>
             </div>
           ) : (

@@ -40,10 +40,10 @@ export default function Header({
           </div>
           <div>
             <span className="font-sans text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-              eurotravel<span className="text-blue-600 dark:text-cyan-400">blog</span>
+              eurotravels<span className="text-blue-600 dark:text-cyan-400">guide</span>
             </span>
-            <span className="block text-[10px] font-mono leading-none tracking-widest text-slate-400 uppercase">
-              European Escapes
+            <span className="block text-[10px] font-mono leading-none tracking-widest text-slate-400 lowercase">
+              eurotravelsguide.eu.org
             </span>
           </div>
         </button>
