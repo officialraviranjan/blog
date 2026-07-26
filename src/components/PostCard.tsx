@@ -25,6 +25,9 @@ export default function PostCard({ post, onClick, onCategoryClick }: PostCardPro
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           referrerPolicy="no-referrer"
           id={`post-card-img-${post.slug}`}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80";
+          }}
         />
         <div className="absolute top-3 left-3 flex flex-wrap gap-1" id="card-categories">
           {post.categories.map((cat) => (

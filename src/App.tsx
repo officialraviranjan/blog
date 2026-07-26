@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, ArrowRight, Sparkles, Send, CheckCircle, Compass } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Sparkles, Send, CheckCircle, Compass, ExternalLink, Copy, Check, FileCode, Globe } from 'lucide-react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import PostCard from './components/PostCard';
@@ -20,6 +20,13 @@ export default function App() {
       (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
   });
   const [searchOpen, setSearchOpen] = useState(false);
+  const [copiedAdsTxt, setCopiedAdsTxt] = useState(false);
+
+  const handleCopyAdsTxt = () => {
+    navigator.clipboard.writeText('google.com, pub-2598222839692279, DIRECT, f08c47fec0942fa0');
+    setCopiedAdsTxt(true);
+    setTimeout(() => setCopiedAdsTxt(false), 2000);
+  };
 
   // Apply dark mode theme
   useEffect(() => {
@@ -487,6 +494,67 @@ export default function App() {
               <p>
                 By accessing this website we assume you accept these terms and conditions. Do not continue to use eurotravelsguide if you do not agree to take all of the terms and conditions stated on this page.
               </p>
+            </div>
+          </div>
+        )}
+
+        {/* 10. ADS.TXT VIEW */}
+        {currentRoute === 'ads.txt' && (
+          <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8 w-full animate-in fade-in duration-300" id="adstxt-view">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4 dark:border-slate-800 mb-8">
+              <div>
+                <h1 className="font-sans text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                  <FileCode className="h-7 w-7 text-blue-600 dark:text-cyan-400" />
+                  Google AdSense ads.txt Configuration
+                </h1>
+                <p className="font-sans text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  Authorized Digital Sellers file hosted at <code className="font-mono text-blue-600 dark:text-cyan-400">/ads.txt</code>
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <a
+                  href="/ads.txt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  View Raw /ads.txt
+                </a>
+                <button
+                  onClick={handleCopyAdsTxt}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white hover:bg-blue-500 dark:bg-cyan-500 dark:text-slate-900 cursor-pointer"
+                >
+                  {copiedAdsTxt ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                  {copiedAdsTxt ? 'Copied!' : 'Copy Snippet'}
+                </button>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 dark:border-emerald-900/50 dark:bg-emerald-950/30 mb-8 flex items-start gap-3">
+              <CheckCircle className="h-6 w-6 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              <div>
+                <h2 className="font-sans text-sm font-bold text-slate-900 dark:text-white">
+                  Publisher Authorization File Status: Active & Valid
+                </h2>
+                <p className="font-sans text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                  Your Google AdSense account ID <code className="font-mono font-bold text-slate-900 dark:text-white">ca-pub-2598222839692279</code> is configured directly at the domain root level. Google crawlers will discover and verify this file automatically when reviewing <code className="font-mono text-blue-600 dark:text-cyan-400">https://eurotravelsguide.eu.org/ads.txt</code>.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-900 p-4 dark:border-slate-800">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                <span className="font-mono text-xs text-slate-400">public/ads.txt</span>
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+                  HTTP 200 OK (text/plain)
+                </span>
+              </div>
+              <pre className="mt-3 overflow-x-auto text-xs font-mono text-emerald-400 leading-relaxed p-3 bg-slate-950 rounded-lg">
+{`# Google AdSense Publisher Authorization File (ads.txt)
+google.com, pub-2598222839692279, DIRECT, f08c47fec0942fa0`}
+              </pre>
             </div>
           </div>
         )}

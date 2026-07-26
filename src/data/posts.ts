@@ -1,13 +1,9 @@
 import { Post } from '../types';
+import { defaultAuthor } from './authors';
+import { newPostsBatch1 } from './newPostsBatch1';
+import { newPostsBatch2 } from './newPostsBatch2';
 
-export const defaultAuthor = {
-  name: "Sophia Rossi",
-  avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80",
-  bio: "A passionate travel writer and photographer based in Florence, Italy. Exploring Europe's hidden cobblestones, authentic local trattorias, and breathtaking train routes.",
-  twitter: "https://twitter.com/sophia_travels",
-  github: "https://github.com/sophia_travels",
-  linkedin: "https://linkedin.com/in/sophiarossi"
-};
+export { defaultAuthor };
 
 export const samplePosts: Post[] = [
   {
@@ -145,7 +141,7 @@ Discovering these hidden sanctuaries will show you a deeper, more memorable side
     date: "2026-06-15",
     draft: false,
     featured: false,
-    cover: "https://images.unsplash.com/photo-1541417904950-b855846fe074?auto=format&fit=crop&w=800&q=80",
+    cover: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80",
     author: defaultAuthor,
     categories: ["Travel Tips", "Itineraries"],
     tags: ["Train Travel", "Train", "Budget Travel", "Europe"],
@@ -282,5 +278,7 @@ After your sunrise photography walk, warm up with an elegant breakfast in one of
 *Don't forget to grab a warm **Trdelník** (cinnamon-sugar spit cake) from a local bakery as you wander the winding Old Town lanes!*
 
 Prague is a city of historic wonder. Seeing it in the soft morning light, empty of crowd noise, is an experience you will cherish forever.`
-  }
+  },
+  ...newPostsBatch1,
+  ...newPostsBatch2
 ];

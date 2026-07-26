@@ -104,14 +104,12 @@ export default function Footer({ setRoute }: FooterProps) {
                 </button>
               </li>
               <li>
-                <a
-                  href="/sitemap.xml"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-sm text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-cyan-400"
+                <button
+                  onClick={() => setRoute('ads.txt')}
+                  className="font-sans text-sm text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-cyan-400 cursor-pointer"
                 >
-                  Sitemap XML
-                </a>
+                  ads.txt Info
+                </button>
               </li>
             </ul>
           </div>

@@ -411,6 +411,9 @@ export default function PostView({
             alt={post.title}
             className="w-full max-h-[460px] object-cover"
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80";
+            }}
           />
         </div>
 

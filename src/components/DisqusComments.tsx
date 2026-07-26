@@ -49,11 +49,12 @@ export default function DisqusComments({
       setIsScriptLoading((loading) => {
         if (loading) {
           setDisqusError(true);
+          setActiveTab('native'); // Auto switch to native comments for smooth fallback
           return false;
         }
         return false;
       });
-    }, 4500);
+    }, 3500);
 
     // If DISQUS is already loaded on page, reload with new config
     if (windowObj.DISQUS) {
@@ -73,6 +74,7 @@ export default function DisqusComments({
         clearTimeout(timeoutTimer);
         setIsScriptLoading(false);
         setDisqusError(true);
+        setActiveTab('native');
       }
       return () => clearTimeout(timeoutTimer);
     }
@@ -99,6 +101,7 @@ export default function DisqusComments({
       clearTimeout(timeoutTimer);
       setIsScriptLoading(false);
       setDisqusError(true);
+      setActiveTab('native');
     };
 
     document.head.appendChild(script);
@@ -217,6 +220,21 @@ export default function DisqusComments({
       {/* NATIVE LOCAL COMMENTS TAB CONTENT */}
       {activeTab === 'native' && (
         <div className="pt-6" id="native-tab-content">
+          {disqusError && (
+            <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50/80 p-3.5 dark:border-blue-900/40 dark:bg-blue-950/30 flex items-center justify-between text-xs text-blue-900 dark:text-blue-200">
+              <div className="flex items-center gap-2">
+                <AlertCircle className="h-4 w-4 text-blue-600 dark:text-cyan-400 shrink-0" />
+                <span>Defaulted to <strong>Native Comments</strong> because Disqus thread <code className="font-mono text-blue-700 dark:text-cyan-300">{shortname}</code> requires domain registration or unblocked third-party scripts.</span>
+              </div>
+              <button
+                onClick={() => setActiveTab('disqus')}
+                className="font-bold underline text-blue-700 hover:text-blue-800 dark:text-cyan-400 dark:hover:text-cyan-300 ml-2 whitespace-nowrap cursor-pointer"
+              >
+                Try Disqus
+              </button>
+            </div>
+          )}
+
           {/* Comment List */}
           <div className="flex flex-col gap-6" id="comments-list">
             {comments.map((comment) => (
