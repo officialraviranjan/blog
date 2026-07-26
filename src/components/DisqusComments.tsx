@@ -13,7 +13,7 @@ interface DisqusCommentsProps {
 export default function DisqusComments({
   postSlug,
   postTitle,
-  shortname = 'eurotravelsguide',
+  shortname = 'eurotravelsguide-eu-org',
   comments,
   onAddComment,
 }: DisqusCommentsProps) {
@@ -44,6 +44,17 @@ export default function DisqusComments({
       this.page.title = postTitle;
     };
 
+    // Timeout guard to prevent infinite loading if Disqus is blocked or non-existent
+    const timeoutTimer = setTimeout(() => {
+      setIsScriptLoading((loading) => {
+        if (loading) {
+          setDisqusError(true);
+          return false;
+        }
+        return false;
+      });
+    }, 4500);
+
     // If DISQUS is already loaded on page, reload with new config
     if (windowObj.DISQUS) {
       try {
@@ -55,12 +66,15 @@ export default function DisqusComments({
             this.page.title = postTitle;
           },
         });
+        clearTimeout(timeoutTimer);
         setIsScriptLoading(false);
       } catch (e) {
         console.warn('Disqus reset error:', e);
+        clearTimeout(timeoutTimer);
         setIsScriptLoading(false);
+        setDisqusError(true);
       }
-      return;
+      return () => clearTimeout(timeoutTimer);
     }
 
     // Otherwise, append script tag dynamically
@@ -77,10 +91,12 @@ export default function DisqusComments({
     script.async = true;
 
     script.onload = () => {
+      clearTimeout(timeoutTimer);
       setIsScriptLoading(false);
     };
 
     script.onerror = () => {
+      clearTimeout(timeoutTimer);
       setIsScriptLoading(false);
       setDisqusError(true);
     };
@@ -88,7 +104,7 @@ export default function DisqusComments({
     document.head.appendChild(script);
 
     return () => {
-      // Optional cleanup
+      clearTimeout(timeoutTimer);
     };
   }, [postSlug, postTitle, shortname, activeTab, canonicalUrl]);
 

@@ -103,6 +103,16 @@ export default function Footer({ setRoute }: FooterProps) {
                   Terms of Service
                 </button>
               </li>
+              <li>
+                <a
+                  href="/sitemap.xml"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-sm text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-cyan-400"
+                >
+                  Sitemap XML
+                </a>
+              </li>
             </ul>
           </div>
         </div>
