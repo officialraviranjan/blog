@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Updated Date", name: "updated", widget: "datetime", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Featured Post", name: "featured", widget: "boolean", default: false }
+      - { label: "Cover Image", name: "cover", widget: "image" }
+      - { label: "Author Name", name: "author", widget: "string", default: "Kenji Sato" }
+      - { label: "Categories", name: "categories", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Reading Time", name: "readingTime", widget: "string", default: "5 min read" }
+      - { label: "Body", name: "body", widget: "markdown" }
