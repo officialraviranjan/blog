@@ -1,0 +1,6 @@
+{
+  "name": "Hugo Blonde Theme",
+  "description": "A highly optimized, modern, and accessible recreation of the Hugo Blonde blog theme, built with high-fidelity React for live preview and containing a fully deployable Astro and Decap CMS project.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

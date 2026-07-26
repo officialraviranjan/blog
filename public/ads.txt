@@ -1,0 +1,6 @@
+# Google AdSense Publisher Authorization File (ads.txt)
+# Replace the publisher ID (pub-9876543210123456) with your actual publisher account ID.
+
+google.com, pub-9876543210123456, DIRECT, f08c47fec0942fa0
+
+# For more information, visit: https://support.google.com/adsense/answer/12171612
