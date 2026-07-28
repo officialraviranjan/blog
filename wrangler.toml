@@ -1,9 +1,6 @@
 name = "euro-travels-guide"
 pages_build_output_dir = "dist"
 
-[site]
-bucket = "./dist"
-
 [vars]
 ENVIRONMENT = "production"
 SITE_URL = "https://eurotravelsguide.eu.org"
