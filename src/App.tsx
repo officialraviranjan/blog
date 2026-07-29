@@ -325,7 +325,7 @@ function AboutView() {
             To achieve maximum ad yield and absolute speed, this theme compiles to 100% static HTML (SSG). This eliminates slow database queries and provides perfect, shift-free layouts that Google AdSense demands for maximum visibility.
           </p>
           <ul className="list-disc pl-5 space-y-2 mt-2">
-            <li><strong>Static Site Generation (SSG):</strong> Deployed completely on Cloudflare CDN for sub-millisecond response times.</li>
+            <li><strong>Static Site Generation (SSG):</strong> Deployed completely on global edge CDN for sub-millisecond response times.</li>
             <li><strong>Lighthouse 100/100 Core Web Vitals:</strong> Zero layout shifts, meaning ads load seamlessly without disrupting text flow.</li>
             <li><strong>Decap CMS Integrated:</strong> Edit and publish markdown articles directly from your phone on the road.</li>
           </ul>
