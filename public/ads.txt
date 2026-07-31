@@ -1,0 +1,2 @@
+# Google AdSense Publisher Authorization File (ads.txt)
+google.com, pub-2598222839692279, DIRECT, f08c47fec0942fa0
