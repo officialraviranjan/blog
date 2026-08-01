@@ -1,0 +1,6 @@
+{
+  "name": "eurotravelsguide",
+  "description": "An elegant, lightning-fast travel blog template and guide for eurotravelsguide.eu.org.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
